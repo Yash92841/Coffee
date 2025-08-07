@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us - Coffee Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf6f2;
+    }
+
+    .contact-container {
+      padding: 100px 20px 60px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact-box {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-box h2 {
+      margin-bottom: 10px;
+      font-size: 28px;
+      color: #4e342e;
+    }
+
+    .contact-box p {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .contact-box label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-box input:focus,
+    .contact-box textarea:focus {
+      border-color: #795548;
+      outline: none;
+    }
+
+    .contact-box button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #6d4c41;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-box button:hover {
+      background-color: #5d4037;
+    }
+
+    .support-info {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .support-info h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #4e342e;
+    }
+
+    .support-info p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar section-content">
+      <div class="nav-logo">
+        <span class="logo-text">Coffee Shop</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="order.html" class="nav-link">Order Now</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="contact-container">
+    <div class="contact-box">
+      <h2>We’d love to hear from you ☕</h2>
+      <p>For feedback, queries, or issues related to orders, get in touch with our team. We'll respond as soon as possible.</p>
+
+      <form id="contactForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+        <div class="success-message" id="successMsg"></div>
+      </form>
+
+      <div class="support-info">
+        <h3>Customer Support</h3>
+        <p>📞 Phone: +91 98765 43210</p>
+        <p>✉️ Email: support@coffeeshop.com</p>
+        <p>🕒 Timings: 8 AM – 10 PM, Monday to Sunday</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('successMsg').textContent = '✅ Thank you! We’ll get back to you shortly.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
