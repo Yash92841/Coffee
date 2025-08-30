@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Order Coffee - Coffee Shop</title>
+  <style>
+    :root {
+      --primary: #6f4e37;
+      --secondary: #d4a373;
+      --bg: #fefae0;
+      --white: #fff;
+      --border-radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      padding-bottom: 100px;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 20px;
+      color: var(--white);
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .item-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+    }
+
+    .item-name {
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .item-desc {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-top: 5px;
+      min-height: 40px;
+    }
+
+    .item-price {
+      font-size: 16px;
+      color: #333;
+      margin-top: 8px;
+    }
+
+    .qty-input {
+      margin-top: 10px;
+      width: 60px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .total-section {
+      margin-top: 50px;
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: var(--white);
+      padding: 14px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .submit-btn:hover {
+      background: #5b3c2b;
+    }
+
+    .user-info {
+      margin-bottom: 40px;
+    }
+
+    .user-info label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .user-info input, .user-info textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .total-section, .submit-btn {
+        text-align: center;
+        float: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Coffee Shop - Order Now
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Customize Your Order</h2>
+
+    <div class="user-info">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="example@mail.com" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" rows="3" placeholder="Delivery address..." required></textarea>
+    </div>
+
+    <div class="menu-items">
+      <div class="item-card">
+        <img src="./images/espresso.png" alt="Espresso" />
+        <div class="item-name">Espresso</div>
+        <div class="item-desc">Strong, classic espresso shot.</div>
+        <div class="item-price">₹100</div>
+        <input class="qty-input" type="number" min="0" id="espresso" value="0" />
+      </div>
+
+      <div class="item-card">
+        <img src="./images/filter-coffee-1.jpg" alt="Latte" />
+        <div class="item-name">Latte</div>
+        <div class="item-desc">Creamy milk coffee with smooth flavor.</div>
+        <div class="item-price">₹120</div>
+        <input class="qty-input" type="number" min="0" id="latte" value="0" />
+      </div>
+
+      <div class="item-card">
+        <img src="./images/desserts.png" alt="Croissant" />
+        <div class="item-name">Croissant</div>
+        <div class="item-desc">Flaky French pastry to pair with coffee.</div>
+        <div class="item-price">₹50</div>
+        <input class="qty-input" type="number" min="0" id="croissant" value="0" />
+      </div>
+
+      <div class="item-card">
+        <img src="./images/cold-beverages.png" alt="Milk" />
+        <div class="item-name">Milk</div>
+        <div class="item-desc">Extra milk for your drink.</div>
+        <div class="item-price">₹20</div>
+        <input class="qty-input" type="number" min="0" id="milk" value="0" />
+      </div>
+
+      <div class="item-card">
+        <img src="./images/burger-frenchfries.png" alt="Sugar" />
+        <div class="item-name">burger-frenchfries</div>
+        <div class="item-desc">Delicious juicy!!</div>
+        <div class="item-price">₹85</div>
+        <input class="qty-input" type="number" min="0" id="sugar" value="0" />
+      </div>
+    </div>
+
+    <div class="total-section" id="total">Total: ₹0</div>
+    <button class="submit-btn" id="submitOrder">Place Order</button>
+  </div>
+
+  <script>
+    const prices = {
+      espresso: 100,
+      latte: 120,
+      croissant: 50,
+      milk: 20,
+      sugar: 5
+    };
+
+    function calculateTotal() {
+      let total = 0;
+      for (let item in prices) {
+        const qty = parseInt(document.getElementById(item).value || 0);
+        total += qty * prices[item];
+      }
+      document.getElementById("total").textContent = "Total: ₹" + total;
+    }
+
+    document.querySelectorAll(".qty-input").forEach(input => {
+      input.addEventListener("input", calculateTotal);
+    });
+
+    document.getElementById("submitOrder").addEventListener("click", function () {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!name || !email || !address) {
+        alert("⚠️ Please fill out all the required fields.");
+        return;
+      }
+
+      alert("✅ Order placed successfully!\nThank you for ordering with us!");
+      document.querySelectorAll(".qty-input").forEach(input => input.value = 0);
+      document.getElementById("name").value = '';
+      document.getElementById("email").value = '';
+      document.getElementById("address").value = '';
+      calculateTotal();
+    });
+
+    calculateTotal();
+  </script>
+</body>
+</html>
